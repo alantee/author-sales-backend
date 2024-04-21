@@ -1,0 +1,17 @@
+config:
+  target: 'http://localhost:3000' 
+  phases:
+    - duration: 60 
+      arrivalRate: 20 
+      rampTo: 1000 
+      name: "Ramping up"
+    - duration: 120
+      arrivalRate: 1000
+      name: "High load"
+
+scenarios:
+  - flow:
+      - get:
+          url: "/top-authors"
+          query:
+            author_name: "Existing Author"
